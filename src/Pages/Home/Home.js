@@ -5,7 +5,6 @@ import Hero from './Hero';
 
 const Home = () => {
     const serviceData = useLoaderData();
-    console.log(serviceData);
     return (
         <div>
             <Hero></Hero>
