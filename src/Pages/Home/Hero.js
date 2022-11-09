@@ -8,18 +8,18 @@ const Hero = () => {
             <section class="max-w-screen-2xl px-4 md:px-8 mx-auto">
                 <div class="flex flex-wrap justify-between mb-8 md:mb-16">
                     <div class="w-full lg:w-1/3 flex flex-col justify-center lg:pt-48 lg:pb-24 mb-6 sm:mb-12 lg:mb-0">
-                        <h1 class="text-black-800 text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-8">Find your<br />style online</h1>
+                        <h1 class="text-black-800 text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-8">Take Care <br /> Of Your <span className='text-indigo-500'>Eye</span> <br /> Health Here</h1>
 
-                        <p class="max-w-md text-gray-500 xl:text-lg leading-relaxed">This is a section of some simple filler text, also known as placeholder text. It shares characteristics of real text.</p>
+                        <p class="max-w-md text-gray-500 xl:text-lg leading-relaxed">Your eyes do wondrous things. Through a complex system, they take in information and have a direct connection with your brain, allowing you to visually process the world around you.</p>
                     </div>
 
                     <div class="w-full lg:w-2/3 flex mb-12 md:mb-16">
                         <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden relative z-10 top-12 md:top-16 left-12 md:left-16 -ml-12 lg:ml-0">
-                            <img src="https://images.unsplash.com/photo-1542340916-951bb72c8f74?auto=format&q=75&fit=crop&w=550&h=550" loading="lazy" alt="Photo by Kaung Htet" class="w-full h-full object-cover object-center" />
+                            <img src="https://plus.unsplash.com/premium_photo-1661284827673-a7c4c463bd7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjF8fGV5ZSUyMGRvY3RvcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" loading="lazy" alt="Photo by Kaung Htet" class="w-full h-full object-cover object-center" />
                         </div>
 
                         <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1586295166487-b265f7e83a7f?auto=format&q=75&fit=crop&w=550&h=550" loading="lazy" alt="Photo by Manny Moreno" class="w-full h-full object-cover object-center" />
+                            <img src="https://plus.unsplash.com/premium_photo-1661720314515-f0c388f8c517?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ1fHxleWUlMjBkb2N0b3J8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" loading="lazy" alt="Photo by Manny Moreno" class="w-full h-full object-cover object-center" />
                         </div>
                     </div>
                 </div>
