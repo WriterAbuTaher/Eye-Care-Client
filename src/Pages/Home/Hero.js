@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -25,9 +26,8 @@ const Hero = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                    <a
+                    <Link to={'/services'}
                         className="group flex items-center justify-between rounded-lg border border-current px-5 py-3 text-indigo-600 transition-colors hover:bg-indigo-600 focus:outline-none focus:ring active:bg-indigo-500"
-                        href="/download"
                     >
                         <span className="font-medium transition-colors group-hover:text-white">
                             Find out more
@@ -51,7 +51,7 @@ const Hero = () => {
                                 />
                             </svg>
                         </span>
-                    </a>
+                    </Link>
 
                     <div
                         className="group relative inline-block rounded-full border border-current px-8 py-3 text-indigo-600"
