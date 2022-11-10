@@ -5,9 +5,9 @@ import Blog from '../Pages/Blog';
 import Error from '../Pages/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login';
+import MyReviews from '../Pages/MyReviews';
 import Profile from '../Pages/Profile';
 import Register from '../Pages/Register';
-import ReviewNow from '../Pages/ReviewNow';
 import Review from '../Pages/Services/Review';
 import ServiceInfo from '../Pages/Services/ServiceInfo';
 import Services from '../Pages/Services/Services';
@@ -40,6 +40,10 @@ const Routes = createBrowserRouter([
             {
                 path: '/review',
                 element: <Review></Review>
+            },
+            {
+                path: '/myreviews',
+                element: <MyReviews></MyReviews>
             },
             {
                 path: '/blog',

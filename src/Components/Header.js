@@ -4,7 +4,11 @@ import { AuthContext } from '../Contexts/UserContext';
 
 const Header = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut();
+    }
 
     return (
         <header className="border-b mb-8">
@@ -18,15 +22,20 @@ const Header = () => {
                     <NavLink to={'/services'} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">Services</NavLink>
                     <NavLink to={'/blog'} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">Blog</NavLink>
                     {
-                        !user &&
-                        <>
-                            <NavLink to={'/login'} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">Login</NavLink>
-                            <NavLink to={'/register'}
-                                className="inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
-                            >
-                                Register
-                            </NavLink>
-                        </>
+                        !user ?
+                            <>
+                                <NavLink to={'/login'} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">Login</NavLink>
+                                <NavLink to={'/register'}
+                                    className="inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500"
+                                >
+                                    Register
+                                </NavLink>
+                            </>
+                            :
+                            <>
+                                <NavLink to={'/myreviews'} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">My Reviews</NavLink>
+                                <button onClick={handleLogOut} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">Log Out</button>
+                            </>
                     }
                 </nav>
 

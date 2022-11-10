@@ -91,7 +91,7 @@ const ServiceInfo = () => {
                         </Link>
                     </div>
 
-                    <Review></Review>
+                    <Review _id={_id} name={name}></Review>
 
                 </div>
 
