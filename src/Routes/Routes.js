@@ -5,12 +5,13 @@ import Blog from '../Pages/Blog';
 import Error from '../Pages/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login';
-import MyReviews from '../Pages/MyReviews';
+import MyReviews from '../Pages/Reviews/MyReviews';
 import Profile from '../Pages/Profile';
 import Register from '../Pages/Register';
 import Review from '../Pages/Services/Review';
 import ServiceInfo from '../Pages/Services/ServiceInfo';
 import Services from '../Pages/Services/Services';
+import ReviewUpdate from '../Pages/Reviews/ReviewUpdate';
 
 const Routes = createBrowserRouter([
     {
@@ -20,12 +21,12 @@ const Routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch("https://eye-care-server-jet.vercel.app/services")
+                loader: () => fetch("https://eye-care-server-jet.vercel.app/limit")
             },
             {
                 path: '/home',
                 element: <Home></Home>,
-                loader: () => fetch("https://eye-care-server-jet.vercel.app/services")
+                loader: () => fetch("https://eye-care-server-jet.vercel.app/limit")
             },
             {
                 path: '/services',
@@ -33,13 +34,18 @@ const Routes = createBrowserRouter([
                 loader: () => fetch("https://eye-care-server-jet.vercel.app/services")
             },
             {
-                path: '/service/:id',
+                path: '/services/:id',
                 element: <ServiceInfo></ServiceInfo>,
-                loader: ({ params }) => fetch(`https://eye-care-server-jet.vercel.app/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://eye-care-server-jet.vercel.app/services/${params.id}`)
             },
             {
-                path: '/review',
+                path: '/reviews',
                 element: <Review></Review>
+            },
+            {
+                path: '/reviewUpdate/:id',
+                element: <ReviewUpdate></ReviewUpdate>,
+                loader: ({ params }) => fetch(`https://eye-care-server-jet.vercel.app/reviews/${params.id}`)
             },
             {
                 path: '/myreviews',

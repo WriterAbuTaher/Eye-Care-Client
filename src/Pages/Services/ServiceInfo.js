@@ -6,6 +6,7 @@ const ServiceInfo = () => {
 
     const { _id, name, img, price, whatIsIt, risk, treatment, symptoms } = useLoaderData();
 
+
     return (
         <>
             <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -61,7 +62,7 @@ const ServiceInfo = () => {
 
                     <div className='flex justify-between items-center my-8'>
                         <h2 className="text-gray-800 text-xl sm:text-2xl font-semibold mb-2 md:mb-4">Price: ${price}</h2>
-                        <Link to={'/review'}
+                        <Link to={'/reviews'}
                             className="group flex items-center justify-center rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 transition-colors hover:bg-transparent focus:outline-none focus:ring"
                         >
                             <span

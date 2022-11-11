@@ -12,6 +12,12 @@ const Review = ({ _id, name }) => {
     const userName = user?.displayName;
     const img = user?.photoURL;
 
+    useEffect(() => {
+        fetch(`https://eye-care-server-jet.vercel.app/reviews?email=${email}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [email]);
+
     const handleReview = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -48,18 +54,21 @@ const Review = ({ _id, name }) => {
             .catch(err => console.error(err));
     }
 
-    useEffect(() => {
-        fetch(`https://eye-care-server-jet.vercel.app/reviews?email=${email}`)
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [email])
+    console.log(reviews.length);
 
     return (
         <div className='max-w-screen-lg mx-auto'>
             <section className='my-8 bg-gray-100'>
-                <div className="container flex flex-col items-center mx-auto md:p-12">
-                    <h1 className="p-4 text-4xl font-semibold leading-none text-center">Here Are Your Reviews For About Us</h1>
-                </div>
+                {
+                    reviews.length === 0 ?
+                        <div className="container flex flex-col items-center mx-auto md:p-12">
+                            <h1 className="p-4 text-4xl font-semibold leading-none text-center">There Are No Reviews For About Us</h1>
+                        </div>
+                        :
+                        <div className="container flex flex-col items-center mx-auto md:p-12">
+                            <h1 className="p-4 text-4xl font-semibold leading-none text-center">Here Are Some Reviews For About Us</h1>
+                        </div>
+                }
                 <div className="grid md:grid-cols-2 px-4">
                     {
                         reviews.map(review => {
@@ -80,7 +89,13 @@ const Review = ({ _id, name }) => {
                                         </p>
                                     </div>
                                     <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-indigo-400 text-gray-900">
-                                        <img src={img} alt="" className="w-20 h-20 mb-2 -mt-16 bg-center bg-cover rounded-full" />
+                                        {
+                                            img ?
+                                                <img src={img} alt="" className="w-20 h-20 mb-2 -mt-16 bg-center bg-cover rounded-full" />
+                                                :
+                                                <img src="https://cdn-icons-png.flaticon.com/512/560/560277.png" alt="" className="w-20 h-20 mb-2 -mt-16 bg-center bg-cover rounded-full" />
+
+                                        }
                                         <p className="text-xl font-semibold leading-tight">{userName}</p>
                                         <p>{email}</p>
                                     </div>
