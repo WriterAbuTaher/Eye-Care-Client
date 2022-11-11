@@ -34,6 +34,7 @@ const Header = () => {
                             :
                             <>
                                 <NavLink to={'/myreviews'} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">My Reviews</NavLink>
+                                <NavLink to={'/addServices'} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">Add Service</NavLink>
                                 <button onClick={handleLogOut} className="relative text-gray-600 text-lg font-semibold before:absolute before:-bottom-1 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100">Log Out</button>
                             </>
                     }

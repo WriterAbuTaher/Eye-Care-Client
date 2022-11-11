@@ -12,6 +12,7 @@ import Review from '../Pages/Services/Review';
 import ServiceInfo from '../Pages/Services/ServiceInfo';
 import Services from '../Pages/Services/Services';
 import ReviewUpdate from '../Pages/Reviews/ReviewUpdate';
+import AddServices from '../Pages/Services/AddServices';
 
 const Routes = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const Routes = createBrowserRouter([
                 path: '/services',
                 element: <Services></Services>,
                 loader: () => fetch("https://eye-care-server-jet.vercel.app/services")
+            },
+            {
+                path: '/addServices',
+                element: <AddServices></AddServices>,
             },
             {
                 path: '/services/:id',
