@@ -38,7 +38,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <PrivateRoute><Services></Services></PrivateRoute>,
+                element: <Services></Services>,
                 loader: () => fetch("https://eye-care-server-jet.vercel.app/services")
             },
             {
@@ -69,11 +69,11 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <PrivateRoute><Login></Login></PrivateRoute>
+                element: <Login></Login>
             },
             {
                 path: '/register',
-                element: <PrivateRoute><Register></Register></PrivateRoute>
+                element: <Register></Register>
             },
             {
                 path: '/profile',
