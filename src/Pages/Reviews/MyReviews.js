@@ -46,13 +46,9 @@ const MyReviews = () => {
                 <div className="container flex flex-col items-center mx-auto md:p-12">
                     {
                         reviews.length === 0 ?
-                            <div className="container flex flex-col items-center mx-auto md:p-12">
-                                <h1 className="p-4 text-4xl font-semibold leading-none text-center">There Are No Reviews For About Us</h1>
-                            </div>
+                            <h1 className="p-4 text-4xl font-semibold leading-none text-center">There Are No Reviews For About Us</h1>
                             :
-                            <div className="container flex flex-col items-center mx-auto md:p-12">
-                                <h1 className="p-4 text-4xl font-semibold leading-none text-center">Here Are Your Reviews For About Us</h1>
-                            </div>
+                            <h1 className="p-4 text-4xl font-semibold leading-none text-center">Here Are Your Reviews For About Us</h1>
                     }
                 </div>
                 <div className="grid md:grid-cols-2 px-4">

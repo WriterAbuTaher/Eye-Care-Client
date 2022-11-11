@@ -13,10 +13,10 @@ const Review = ({ _id, name }) => {
     const img = user?.photoURL;
 
     useEffect(() => {
-        fetch(`https://eye-care-server-jet.vercel.app/reviews?email=${email}`)
+        fetch("https://eye-care-server-jet.vercel.app/reviews")
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [email]);
+    }, []);
 
     const handleReview = (e) => {
         e.preventDefault();
@@ -42,7 +42,6 @@ const Review = ({ _id, name }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    console.log(data);
                     Swal.fire(
                         'Thank You!',
                         'Your Review Placed Succesfully!',
@@ -54,25 +53,21 @@ const Review = ({ _id, name }) => {
             .catch(err => console.error(err));
     }
 
-    console.log(reviews.length);
-
     return (
         <div className='max-w-screen-lg mx-auto'>
             <section className='my-8 bg-gray-100'>
-                {
-                    reviews.length === 0 ?
-                        <div className="container flex flex-col items-center mx-auto md:p-12">
+                <div className="container flex flex-col items-center mx-auto md:p-12">
+                    {
+                        reviews.length === 0 ?
                             <h1 className="p-4 text-4xl font-semibold leading-none text-center">There Are No Reviews For About Us</h1>
-                        </div>
-                        :
-                        <div className="container flex flex-col items-center mx-auto md:p-12">
+                            :
                             <h1 className="p-4 text-4xl font-semibold leading-none text-center">Here Are Some Reviews For About Us</h1>
-                        </div>
-                }
+                    }
+                </div>
                 <div className="grid md:grid-cols-2 px-4">
                     {
                         reviews.map(review => {
-                            const { reviewText, serviceName, _id } = review;
+                            const { reviewText, serviceName, _id, userName, img, email } = review;
                             return (
                                 <div key={_id} className="flex flex-col max-w-sm h-max mx-8 my-6 shadow-lg">
                                     <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-200">
