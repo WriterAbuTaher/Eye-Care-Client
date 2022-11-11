@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 const AddServices = () => {
 
     const [services, setServices] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const handleAddService = (e) => {
         e.preventDefault();

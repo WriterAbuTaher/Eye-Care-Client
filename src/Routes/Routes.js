@@ -13,6 +13,8 @@ import ServiceInfo from '../Pages/Services/ServiceInfo';
 import Services from '../Pages/Services/Services';
 import ReviewUpdate from '../Pages/Reviews/ReviewUpdate';
 import AddServices from '../Pages/Services/AddServices';
+import ReviewSlide from '../Pages/Home/ReviewSlide';
+import PrivateRoute from './PrivateRoute';
 
 const Routes = createBrowserRouter([
     {
@@ -30,13 +32,18 @@ const Routes = createBrowserRouter([
                 loader: () => fetch("https://eye-care-server-jet.vercel.app/limit")
             },
             {
+                path: '/home',
+                element: <ReviewSlide></ReviewSlide>,
+                loader: () => fetch("https://eye-care-server-jet.vercel.app/reviews")
+            },
+            {
                 path: '/services',
-                element: <Services></Services>,
+                element: <PrivateRoute><Services></Services></PrivateRoute>,
                 loader: () => fetch("https://eye-care-server-jet.vercel.app/services")
             },
             {
                 path: '/addServices',
-                element: <AddServices></AddServices>,
+                element: <PrivateRoute><AddServices></AddServices></PrivateRoute>,
             },
             {
                 path: '/services/:id',
@@ -62,11 +69,11 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <Login></Login>
+                element: <PrivateRoute><Login></Login></PrivateRoute>
             },
             {
                 path: '/register',
-                element: <Register></Register>
+                element: <PrivateRoute><Register></Register></PrivateRoute>
             },
             {
                 path: '/profile',
