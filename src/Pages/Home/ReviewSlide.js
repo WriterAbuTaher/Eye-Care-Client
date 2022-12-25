@@ -20,6 +20,10 @@ const ReviewSlide = () => {
                 arrows: true,
                 pagination: true,
                 drag: "free",
+                breakpoints: {
+                    1200: { perPage: 3 },
+                    640: { perPage: 1 },
+                },
             }}>
                 {
                     reviews.map(review => {

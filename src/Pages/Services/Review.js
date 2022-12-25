@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Contexts/UserContext';
@@ -6,17 +7,19 @@ import { AuthContext } from '../../Contexts/UserContext';
 const Review = ({ _id, name }) => {
 
     const { user } = useContext(AuthContext);
-    const [reviews, setReviews] = useState([]);
 
     const email = user?.email;
     const userName = user?.displayName;
     const img = user?.photoURL;
 
-    useEffect(() => {
-        fetch("https://eye-care-server-jet.vercel.app/reviews")
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, []);
+    const { data: reviews = [], refetch } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await fetch('https://eye-care-server-jet.vercel.app/reviews');
+            const data = await res.json();
+            return data;
+        }
+    });
 
     const handleReview = (e) => {
         e.preventDefault();
@@ -48,6 +51,7 @@ const Review = ({ _id, name }) => {
                         'success'
                     )
                     form.reset();
+                    refetch();
                 }
             })
             .catch(err => console.error(err));
